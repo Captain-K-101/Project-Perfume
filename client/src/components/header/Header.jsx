@@ -17,7 +17,13 @@ const Header = () => {
           </div>
           <div class={style.header_nav2}>
             <div class={style.text_nav}><NavLink to="/contact" >Contact</NavLink></div>
-            <div class={style.text_nav}><NavLink to="/auth" >Login/Register</NavLink></div>
+            {
+              localStorage.getItem('token')?.split('.').length==2?(
+            <div class={style.text_nav}><NavLink to="/logout">logout</NavLink></div>
+              ):(
+            <div class={style.text_nav}><NavLink to="/auth" >Login/Register</NavLink></div> 
+              )
+            }
             <NavLink to="/cart" className={style.cart}>
               {cartSize || (
                 <span className="material-icons">shopping_cart</span>

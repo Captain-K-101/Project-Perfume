@@ -1,19 +1,36 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './loginreg.css'
+import axios from 'axios'
+import  { Redirect } from 'react-router-dom'
 
 const Loginreg = () => {
 
+
+useEffect(() => {
+	if(localStorage.getItem('token')?.split('.').length==2){
+		document.location='/'
+	}
+}, []);
+
 const [signup, setSignup] = useState(true);
 
-const Register=(event)=>{
-    console.log(event.target.elements.username.value)
-    console.log(event.target.email.value)
-    console.log(event.target.password.value)
+const Register=async (event)=>{
+	const register={"email":event.target.email.value,"username":event.target.elements.username.value,"password":event.target.password.value}
+	const response=await axios.post('http://localhost:3000/api/authentication/register',register)
+	if(response.data['status']=='ok'){
+		await localStorage.setItem("token", response.data['data']['token']);
+		return <Redirect to='/'  />
+	}
 }
 
-const Login=(event)=>{
-    console.log(event.target.email.value)
-    console.log(event.target.password.value)
+const Login=async (event)=>{
+	const login={"email":event.target.email.value,"password":event.target.password.value}
+	const response=await axios.post('http://localhost:3000/api/authentication/login',login)
+	if(response.data['status']=='ok'){
+		await localStorage.setItem("token", response.data['data']['token']);
+		return <Redirect to='/'  />
+	}
+    
 }
 
     return (

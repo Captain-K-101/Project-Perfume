@@ -3,11 +3,18 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { CartProvider } from './context/cartContext';
 import Header from './components/header/Header';
 import { Loader } from './components/loader/Loader';
+import  { Redirect } from 'react-router-dom'
+
 
 const Cart = lazy(() => import('./views/cart/Cart'));
 const Login = lazy(() => import('./views/Authentication/loginreg'));
 const Home = lazy(() => import('./views/homepage/Home'));
 const ViewProduct = lazy(() => import('./views/product/ViewProduct'));
+
+const Logout=()=>{
+  localStorage.removeItem("token");
+   document.location='/'
+}
 function App() {
   return (
     <CartProvider>
@@ -20,6 +27,7 @@ function App() {
               <Route path="/product/:id" component={ViewProduct} />
               <Route path="/cart" component={Cart} />
               <Route path="/auth" component={Login} />
+              <Route path='/logout' component={Logout}/>
               <Route path="*" component={Home} />
             </Switch>
           </Suspense>
