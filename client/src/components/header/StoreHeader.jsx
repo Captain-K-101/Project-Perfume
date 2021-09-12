@@ -79,13 +79,7 @@ const TabsController = ({ customerTypeChange }) => {
             className={active === 4 ? style.active_tab : ''}
             onClick={() => changeCustType(4)}
           >
-            Unisex
-          </li>
-          <li
-            className={active === 5 ? style.active_tab : ''}
-            onClick={() => changeCustType(5)}
-          >
-            Kids
+            BestSeller
           </li>
         </ul>
       </div>

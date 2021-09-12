@@ -66,24 +66,6 @@ const ListController = ({
         </select>
         <span className="material-icons">unfold_more</span>
       </div>
-      <div
-        className={style.filter_btn}
-        onClick={(e) => setSizerShown(!sizerShown)}
-      >
-        <span className="material-icons">filter_alt</span>
-        <span>Sizes</span>
-      </div>
-      {sizerShown && (
-        <div className={style.size_box}>
-          <div className={style.box_header}>
-            <h4>Select Sizes (US)</h4>
-            <button type="button" onClick={() => clearFilters()}>
-              Clear
-            </button>
-          </div>
-          <Sizes products={products} filterProducts={filterChange} />
-        </div>
-      )}
     </div>
   );
 };

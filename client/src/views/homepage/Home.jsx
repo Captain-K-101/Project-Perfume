@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import ProductsGrid from '../../components/products/ProductsGrid';
 import StoreHeader from '../../components/header/StoreHeader';
 import Footer from '../../components/footer/Footer';
-
+import './home.css'
 const Home = () => {
   useEffect(() => {
     document.body.classList.remove('noscroll-web');
@@ -13,8 +13,8 @@ const Home = () => {
 
   return (
     <>
+     <a href='#'><marquee class="GeneratedMarquee" direction="left" scrollamount="50" behavior="scroll">Discount Image.....</marquee></a>
       <StoreHeader customer={customer} customerChange={(e) => setCustomer(e)} />
-      fff
       <ProductsGrid customer={customer} />
       <Footer />
     </>
