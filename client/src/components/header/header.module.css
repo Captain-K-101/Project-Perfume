@@ -66,7 +66,19 @@
 .cart:hover {
   background: #dcdada
 }
-
+.header_nav2{
+  display: flex;
+  gap: 3em;
+}
+.text_nav {
+  margin-top: .7rem;
+ 
+}
+.text_nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
 .store_menu_wrapper {
   overflow: hidden;
   display: grid;
