@@ -193,6 +193,12 @@
 
 @media screen and (max-width:600px) {
 
+  .tab_menus{
+    display: contents;
+  }
+  .header_nav2{
+    display: none;
+  }
   .container {
     padding-left: 20px;
     padding-right: 20px;
