@@ -7,16 +7,16 @@ const Header = () => {
   const { cartSize } = useContext(CartContext);
   const [menu, setmenu] = useState(false);
   return (
-    <header className={document.location.pathname!='/admin'?style.header:"hidden"}>
+    <header className={!document.location.pathname.includes('admin')?style.header:"hidden"}>
       <div className="custombg w-100 h-auto shadow-lg mb-2 -mt-4">
       <div className="p-5">
         <div className="flex justify-between mx-20 text-center items-center">
           <div class="font-semibold text-gray-500">Call us 0012804227</div>
           <div className="flex gap-8">
           <div className="flex gap-10 font-semibold text-gray-500">
-            <div className="text-center cursor-pointer">Home</div>
-            <div className="text-center cursor-pointer">Shop</div>
-            <div className="text-center cursor-pointer">Contact Us</div>
+            <NavLink to="/"  className="text-center cursor-pointer">Home</NavLink>
+            <NavLink to="/" className="text-center cursor-pointer">Shop</NavLink>
+            <NavLink to="/contact" className="text-center cursor-pointer">Contact Us</NavLink>
           </div>|
           <div>
             {localStorage.getItem("token")?.split(".").length == 2 ? (
@@ -90,7 +90,7 @@ const Header = () => {
           About
         </a>
         <a
-          href=""
+          href="/contact"
           class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
         >
           Contact Us

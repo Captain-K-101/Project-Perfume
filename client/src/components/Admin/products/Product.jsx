@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-
+import AddProducts from './AddProduct' 
 const Product = () => {
     const [products, setproducts] = useState([]);
     const [da, setda] = useState(true);
-
+    const [addprod, setAddprod] = useState(false)
     useEffect(async () => {
         await axios.get(`http://localhost:3000/api/products`).then(res=>{
             if(res.data){
@@ -25,8 +25,15 @@ const Delete =async (id)=>{
     })
 }
     return (
-        <>
-<div class="flex flex-col">
+        <div className="mt-20">
+<button onClick={()=>setAddprod(!addprod)} class={addprod?"mx-5 mb-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded":"mx-5 mb-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}>
+  {addprod?"X":"+ Add Products"}
+</button>
+<div className={addprod?"":"hidden"}>
+<AddProducts/>
+</div>
+
+<div className={addprod?"hidden":"flex flex-col mx-5"}>
   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -101,7 +108,7 @@ Not-Avaliable
     </div>
   </div>
 </div>
-        </>
+        </div>
     )
 }
 
