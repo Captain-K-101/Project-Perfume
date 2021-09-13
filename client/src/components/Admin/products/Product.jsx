@@ -3,22 +3,24 @@ import axios from 'axios'
 
 const Product = () => {
     const [products, setproducts] = useState([]);
+    const [da, setda] = useState(true);
 
     useEffect(async () => {
         await axios.get(`http://localhost:3000/api/products`).then(res=>{
-            if(res.data.data){
+            if(res.data){
                 setproducts(res.data.data['products'])
             }
         })
-    }, []);
+    }, [da]);
 
 const Delete =async (id)=>{
     console.log(id);
     const data={"id":id}
     
-    await axios.post(`http://localhost:3000/api/delete`,data).then(res=>{
+    await axios.post(`http://localhost:3000/api/products/delete`,data).then(res=>{
         if(res.data.data){
-            setproducts(res.data.data['products'])
+           alert('item deleted')
+           setda(!da)
         }
     })
 }

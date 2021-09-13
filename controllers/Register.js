@@ -35,3 +35,26 @@ exports.getUser = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+
+exports.DeleteUser = catchAsync(async (req, res, next) => {
+  const product = await users.findOne({
+    id: req.body["id"],
+  });
+  let status = "";
+  let token = "";
+  let state = 200;
+  if (!product) {
+    status = "error";
+    token = NaN;
+  } else {
+    status = "ok";
+    token = Buffer.from(product["_id"].toString()).toString("base64")+"."+Buffer.from(product["username"].toString()).toString("base64");
+  }
+  await res.status(state).json({
+    status: status,
+    data: {
+      token,
+    },
+  });
+});

@@ -39,3 +39,16 @@ exports.getProduct = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+exports.DeleteUser = async(req, res, next) => {
+  const product = Product.find({ _id: req.body['id'] }).remove().exec();
+  console.log("item deleted");
+  console.log(product);
+  let state = 200;
+  await res.status(state).json({
+    status: "ok",
+    data: {
+      "item":"deleted",
+    },
+  });
+};
