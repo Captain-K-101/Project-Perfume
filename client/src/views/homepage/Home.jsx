@@ -17,7 +17,7 @@ const Carosels = () => {
       <Carousel dynamicHeight={true} infiniteLoop={true} showThumbs={false}>
         {HomeBody1.map((items) => (
           <div>
-            <img src={items} />
+            <img class="d-block w-100 crop-image" src={items} />
           </div>
         ))}
       </Carousel>

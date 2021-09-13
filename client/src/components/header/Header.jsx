@@ -7,7 +7,7 @@ const Header = () => {
   const { cartSize } = useContext(CartContext);
   const [menu, setmenu] = useState(false);
   return (
-    <header className={style.header}>
+    <header className={document.location.pathname!='/admin'?style.header:"hidden"}>
       <div className="custombg w-100 h-auto shadow-lg mb-2 -mt-4">
       <div className="p-5">
         <div className="flex justify-between mx-20 text-center items-center">

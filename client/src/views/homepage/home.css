@@ -7,3 +7,7 @@
     padding:1.5em;
     
     }
+.crop-image {
+    height: 400px;
+    object-fit: cover;
+}
