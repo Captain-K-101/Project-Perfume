@@ -16,6 +16,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	margin: 50px 0px;
 }
 h1 {
 	font-weight: bold;
@@ -162,8 +163,8 @@ span {
 
 .overlay {
 	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: -webkit-linear-gradient(to right, #2bff93, #414aff);
+	background: linear-gradient(to right, #2bff93, #414aff);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

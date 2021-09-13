@@ -27,6 +27,7 @@ function App() {
               <Route path="/product/:id" component={ViewProduct} />
               <Route path="/cart" component={Cart} />
               <Route path="/auth" component={Login} />
+              <Route path="/admin" component={Cart} />
               <Route path='/logout' component={Logout}/>
               <Route path="*" component={Home} />
             </Switch>
