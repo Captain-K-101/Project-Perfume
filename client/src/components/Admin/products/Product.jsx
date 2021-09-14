@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import AddProducts from './AddProduct' 
+import { NavLink, Link } from "react-router-dom";
 const Product = () => {
     const [products, setproducts] = useState([]);
     const [da, setda] = useState(true);
@@ -25,6 +26,8 @@ const Delete =async (id)=>{
     })
 }
     return (
+      <>
+            <NavLink to="/admin">Back</NavLink>
         <div className="mt-20">
 <button onClick={()=>setAddprod(!addprod)} class={addprod?"mx-5 mb-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded":"mx-5 mb-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}>
   {addprod?"X":"+ Add Products"}
@@ -109,6 +112,7 @@ Not-Avaliable
   </div>
 </div>
         </div>
+        </>
     )
 }
 

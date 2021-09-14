@@ -6,6 +6,7 @@ import { Loader } from './components/loader/Loader';
 import  { Redirect } from 'react-router-dom'
 import ProtectedRoute from './utils/ProtectedRoute'
 import AdminProd from './components/Admin/products/Product.jsx'
+import AdminCustomer from './components/Admin/customers/Customer'
 
 const Cart = lazy(() => import('./views/cart/Cart'));
 const Login = lazy(() => import('./views/Authentication/loginreg'));
@@ -33,7 +34,7 @@ function App() {
               <Route path="/contact" component={Contact} />
               <ProtectedRoute exact path="/admin" component={Admin} />
               <ProtectedRoute exact path="/admin/products" component={AdminProd} />
-              <ProtectedRoute exact path="/admin/customer" component={Admin} />
+              <ProtectedRoute exact path="/admin/customers" component={AdminCustomer} />
               <Route path='/logout' component={Logout}/>
               <Route path="*" component={Home} />
             </Switch>
