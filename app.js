@@ -6,7 +6,7 @@ const productRoutes = require('./routes/product');
 const AuthRoutes = require('./routes/authentication');
 const app = express();
 
-app.use(express.json({ limit: '10kb' }));
+app.use(express.json({ limit: '50mb' }));
 app.use(cors());
 app.use(express.static('client/build'));
 

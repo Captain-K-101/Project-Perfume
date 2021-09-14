@@ -52,3 +52,15 @@ exports.DeleteUser = async(req, res, next) => {
     },
   });
 };
+
+
+exports.UploadProduct = catchAsync(async (req, res, next) => {
+  console.log(req.body)
+
+  res.status(200).json({
+    status: 'ok',
+    data: {
+      'product':"req.body['data'][0]",
+    },
+  });
+});
