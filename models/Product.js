@@ -27,15 +27,14 @@ const productSchema = new mongoose.Schema({
   sizes: {
     type: Array,
     required: true,
+    default: [8,9]
   },
   productCode: String,
-  images: [
-    {
-      src: String,
-      color: String,
-      hexcode: String,
-    },
-  ],
+  images: {
+    type: Array,
+    required: true,
+    default: ["https://i.insider.com/61135525ad63f30019501966?width=700","https://i.insider.com/61135525ad63f30019501966?width=700"]
+  },
   category: {
     type: String,
     default: 'sneakers',

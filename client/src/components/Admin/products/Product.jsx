@@ -89,7 +89,7 @@ const Product = () => {
                             <div class="flex-shrink-0 h-10 w-10">
                               <img
                                 class="h-10 w-10 rounded-full"
-                                src={i["images"][0].src}
+                                src={i["images"][0].src?i["images"][0].src:i.images[0]}
                                 alt=""
                               />
                             </div>
