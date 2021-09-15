@@ -15,7 +15,7 @@ const Header = ({setSearch,search}) => {
           <div className="flex gap-8">
           <div className="flex gap-10 font-semibold text-gray-500">
             <NavLink to="/"  className="text-center cursor-pointer">Home</NavLink>
-            <NavLink to="/" className="text-center cursor-pointer">Shop</NavLink>
+            <NavLink to="/shop" className="text-center cursor-pointer">Shop</NavLink>
             <NavLink to="/contact" className="text-center cursor-pointer">Contact Us</NavLink>
           </div>|
           <div>

@@ -17,7 +17,7 @@ const CartProduct = ({ cartItem }) => {
   function handleRemoveProduct() {
     removeProduct(cartItem.id);
   }
-
+  
   function increment() {
     setQty(qty + 1);
     qtyUpdate({ ...cartItem, qty: qty + 1 });

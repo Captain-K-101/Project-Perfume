@@ -12,6 +12,7 @@ const Cart = lazy(() => import('./views/cart/Cart'));
 const Login = lazy(() => import('./views/Authentication/loginreg'));
 const Home = lazy(() => import('./views/homepage/Home'));
 const Admin = lazy(() => import('./views/Admin/Admin'));
+const Shop = lazy(() => import('./views/Shop/Shop'));
 const Contact = lazy(() => import('./views/Contact/Contact.js'));
 const ViewProduct = lazy(() => import('./views/product/ViewProduct'));
 
@@ -22,9 +23,11 @@ const Logout=()=>{
 function App() {
 
   const [search, setSearch] = useState('')
+
   useEffect(() => {
 
   }, [search]);
+  
   return (
     <CartProvider>
       <Router>
@@ -35,6 +38,7 @@ function App() {
               <Route path="/" exact render={() => <Home setSearch={setSearch} search={search}/>}/>
               <Route path="/product/:id" component={ViewProduct} />
               <Route path="/cart" component={Cart} />
+               <Route path="/shop" render={() => <Shop setSearch={setSearch} search={search}/>} />
               <Route path="/auth" component={Login} />
               <Route path="/contact" component={Contact} />
               <ProtectedRoute exact path="/admin" component={Admin} />

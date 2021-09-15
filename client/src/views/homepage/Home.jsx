@@ -44,7 +44,6 @@ const Home = ({setSearch,search}) => {
           Discount Image.....
         </marquee>
       </a>
-      <StoreHeader customer={customer} customerChange={(e) => setCustomer(e)} />
       <ProductsGrid setSearch={setSearch} search={search} customer={customer} />
       <Footer />
     </>

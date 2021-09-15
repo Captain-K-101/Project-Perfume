@@ -6,7 +6,7 @@ import style from './cart.module.css';
 const Cart = () => {
   const { cart, totalCost } = useContext(CartContext);
   const [coShown, setCOShown] = useState(false);
-
+  const [dcode, setDcode] = useState(0);
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     document.body.classList.add('noscroll-web');
@@ -15,6 +15,16 @@ const Cart = () => {
 
   function handleCheckOut() {
     alert('Checkout - Subtotal : ₹ ' + totalCost);
+  }
+  const Upd=(e)=>{
+    if(e.target.value){
+      setDcode(e.target.value)
+    }else{
+      setDcode(0)
+    }
+  }
+  const Verify=()=>{
+    console.log(totalCost);
   }
 
   return (
@@ -47,9 +57,13 @@ const Cart = () => {
                 <div className="text">Discount</div>
                 <div className="price">0.00</div>
               </div>
+              <div className={`${style.total_item} ${style.coupon}`}>
+                Discount Code<input onChange={(e)=>Upd(e)} className="border-2 border-red-500" type="text"/>
+                <button onClick={Verify} className="price">Verify</button>
+              </div>
               <div className={style.total_item}>
                 <div className="text">Total</div>
-                <div className="price">{totalCost.toFixed(2)}</div>
+                <div className="price">{totalCost.toFixed(2)+" - "+dcode+"="+parseInt(totalCost.toFixed(2)-dcode)}</div>
               </div>
             </div>
             <div className={style.checkout_footer}>
