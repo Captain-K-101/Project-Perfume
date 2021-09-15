@@ -61,7 +61,8 @@ const CartProduct = ({ cartItem }) => {
         </div>
         <div className={style.item_image}>
           <img
-            src={cartItem.product.images[0].src}
+            width="50%"
+            src={cartItem.product.images[0].src?cartItem.product.images[0].src:cartItem.product.images[0]}
             alt={cartItem.product.name}
           />
         </div>

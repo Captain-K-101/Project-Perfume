@@ -49,7 +49,7 @@ export const Product = ({ product }) => {
       onClick={() => showProductDetails(product)}
     >
       <div className={style.card_image}>
-        <img src={product.images[0].src} alt={product.name} />
+        <img src={product.images[0].src?product.images[0].src:product.images[0]} alt={product.name} />
       </div>
       <div className={style.card_status}>
         {product.status === 0 && (

@@ -63,7 +63,8 @@ const CarouselFullScreen = ({ product }) => {
       {product.images.map((img, i) => (
         <div className={style.preview_large} key={i}>
           <div className={style.cover_large}>
-            <img src={img.src} alt={product.name} />
+          {console.log(product.images)}
+            <img src={img.src?img.src:img} alt={product.name} />
           </div>
         </div>
       ))}
@@ -87,7 +88,7 @@ const CarouselFitScreen = ({ product }) => {
       {product.images.map((img, i) => (
         <div className={style.preview} key={i}>
           <div className={style.cover}>
-            <img src={img.src} alt={product.name} />
+            <img src={img.src?img.src:img} alt={product.name} />
           </div>
         </div>
       ))}
@@ -141,7 +142,7 @@ const ViewProduct = () => {
     new Noty({
       layout: 'bottomCenter',
       progressBar: false,
-      text: `<div style="display:flex; align-items: center;gap:15px;"><img width="40" src=${product.images[0].src} alt='sneaker' /> <div>Added to cart</div></div>`,
+      text: `<div style="display:flex; align-items: center;gap:15px;"><img width="40" src=${product.images[0].src?product.images[0].src:product.images[0]} alt='sneaker' /> <div>Added to cart</div></div>`,
       theme: 'relax',
       timeout: 1000
     }).show();
