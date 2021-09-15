@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense,useState,useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { CartProvider } from './context/cartContext';
 import Header from './components/header/Header';
@@ -20,14 +20,19 @@ const Logout=()=>{
    document.location='/'
 }
 function App() {
+
+  const [search, setSearch] = useState('')
+  useEffect(() => {
+
+  }, [search]);
   return (
     <CartProvider>
       <Router>
         <>
-          <Header />
+          <Header setSearch={setSearch} search={search} />
           <Suspense fallback={<Loader />}>
             <Switch>
-              <Route path="/" exact component={Home} />
+              <Route path="/" exact render={() => <Home setSearch={setSearch} search={search}/>}/>
               <Route path="/product/:id" component={ViewProduct} />
               <Route path="/cart" component={Cart} />
               <Route path="/auth" component={Login} />

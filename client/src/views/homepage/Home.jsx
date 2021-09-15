@@ -24,7 +24,7 @@ const Carosels = () => {
     </div>
   );
 };
-const Home = () => {
+const Home = ({setSearch,search}) => {
   useEffect(() => {
     document.body.classList.remove("noscroll-web");
     document.body.classList.remove("trans");
@@ -45,7 +45,7 @@ const Home = () => {
         </marquee>
       </a>
       <StoreHeader customer={customer} customerChange={(e) => setCustomer(e)} />
-      <ProductsGrid customer={customer} />
+      <ProductsGrid setSearch={setSearch} search={search} customer={customer} />
       <Footer />
     </>
   );

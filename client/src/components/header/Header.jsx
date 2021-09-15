@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { CartContext } from "../../context/cartContext";
 import style from "./header.module.css";
 import "./header.css";
-const Header = () => {
+const Header = ({setSearch,search}) => {
   const { cartSize } = useContext(CartContext);
   const [menu, setmenu] = useState(false);
   return (
@@ -50,7 +50,7 @@ const Header = () => {
                               </path>
                           </svg>
                       </button>
-                      <input type="text" class="px-4 py-2 w-80" placeholder="Search..."/>
+                      <input type="text" onChange={(e)=>setSearch(e.target.value)} class="px-4 py-2 w-80" placeholder="Search..."/>
                   </div>
               </div>
           <div class={style.header_nav2}>

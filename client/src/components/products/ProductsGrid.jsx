@@ -70,7 +70,7 @@ const ListController = ({
   );
 };
 
-const ProductsGrid = ({ customer }) => {
+const ProductsGrid = ({ setSearch,search,customer }) => {
   const [products, setProducts] = useState(null);
   const [gridKlass, setGridKlass] = useState('all_items');
   const [compactView, setCompactView] = useState(true);
@@ -161,7 +161,15 @@ const ProductsGrid = ({ customer }) => {
           } ${gridKlass}`}
         >
           {products.map((product, i) => (
-            <Product product={product} key={i} />
+            <>
+            {search!=''?
+            <>
+            {
+              product.name.includes(search)?<Product product={product} key={i}/>:<></>
+            }
+            </>:<Product product={product} key={i}/>
+            }
+            </>
           ))}
         </div>
       </div>
