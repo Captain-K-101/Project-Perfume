@@ -63,8 +63,7 @@ const CarouselFullScreen = ({ product }) => {
       {product.images.map((img, i) => (
         <div className={style.preview_large} key={i}>
           <div className={style.cover_large}>
-          {console.log(product.images)}
-            <img src={img.src?img.src:img} alt={product.name} />
+            <img src={img.src?img.src:img} alt={product.name} fff/>
           </div>
         </div>
       ))}
@@ -88,7 +87,7 @@ const CarouselFitScreen = ({ product }) => {
       {product.images.map((img, i) => (
         <div className={style.preview} key={i}>
           <div className={style.cover}>
-            <img src={img.src?img.src:img} alt={product.name} />
+            <img src={img.src?img.src:img} alt={product.name} ggg/>
           </div>
         </div>
       ))}

@@ -30,7 +30,7 @@ const Cart = () => {
     await axios
       .post(`http://localhost:3000/api/tokens/check`, data)
       .then((res) => {
-        if (res.data.data) {
+        if (res.data.data.products[0]?.price) {
             setredprice(totalCost.toFixed(2)-res.data.data.products[0].price);
         }
       });

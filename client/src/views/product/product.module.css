@@ -364,6 +364,7 @@
 .cover {
   width: 1000px;
   margin: 0 auto;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -374,8 +375,9 @@
 }
 
 .cover img {
-  height: 800px;
-  width: 800px;
+  height: 500px;
+  width: 500px;
+  margin-left:10rem;
   object-fit: contain;
   object-position: left center;
 }
@@ -420,6 +422,7 @@
     width: 600px;
     object-fit: contain;
     object-position: center;
+    padding: 8rem 0;
   }
 
   .view_controller {
