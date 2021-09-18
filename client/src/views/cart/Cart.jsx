@@ -2,11 +2,13 @@ import { useState, useContext, useLayoutEffect } from 'react';
 import CartProduct from '../../components/cartProduct/CartProduct';
 import { CartContext } from '../../context/cartContext';
 import style from './cart.module.css';
+import axios from "axios";
 
 const Cart = () => {
   const { cart, totalCost } = useContext(CartContext);
   const [coShown, setCOShown] = useState(false);
   const [dcode, setDcode] = useState(0);
+  const [redprice, setredprice] = useState(0);
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     document.body.classList.add('noscroll-web');
@@ -23,7 +25,15 @@ const Cart = () => {
       setDcode(0)
     }
   }
-  const Verify=()=>{
+  const Verify=async()=>{
+    let data={"token":dcode}
+    await axios
+      .post(`http://localhost:3000/api/tokens/check`, data)
+      .then((res) => {
+        if (res.data.data) {
+            setredprice(totalCost.toFixed(2)-res.data.data.products[0].price);
+        }
+      });
     console.log(totalCost);
   }
 
@@ -63,7 +73,7 @@ const Cart = () => {
               </div>
               <div className={style.total_item}>
                 <div className="text">Total</div>
-                <div className="price">{totalCost.toFixed(2)+" - "+dcode+"="+parseInt(totalCost.toFixed(2)-dcode)}</div>
+                <div className="price">{redprice?(<> <del className="text-red-400">{totalCost.toFixed(2)}</del>{"  "+redprice}</>):totalCost.toFixed(2)}</div>
               </div>
             </div>
             <div className={style.checkout_footer}>

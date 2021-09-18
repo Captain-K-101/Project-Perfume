@@ -21,13 +21,13 @@ const Admin = () => {
           <h5 class="text-3xl font-bold mb-4 mt-0">Customers</h5>
           <p class="text-gray-700 text-sm">Content goes here</p>
         </Link>
-        <Link
-          to="/admin/stats"
+        <a
+          href="/assets/result.xlsx"
           class="bg-white rounded shadow border p-6 w-64 hover:scale-125 transform-gpu"
         >
           <h5 class="text-3xl font-bold mb-4 mt-0">Stats</h5>
           <p class="text-gray-700 text-sm">Content goes here</p>
-        </Link>
+        </a>
       </div>
     </>
   );
