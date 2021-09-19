@@ -20,8 +20,8 @@ const productSchema = new mongoose.Schema({
   currency: {
     type: Object,
     default: {
-      id: 'INR',
-      format: '₹',
+      id: 'LKR',
+      format: 'LKR',
     },
   },
   sizes: {

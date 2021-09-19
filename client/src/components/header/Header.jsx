@@ -104,30 +104,30 @@ const Header = ({ setSearch, search }) => {
           menu ? "md:hidden flex-col flex items-center space-x-1" : "hidden"
         }
       >
-        <a
-          href=""
+        <NavLink
+          to="/"
           class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold "
         >
           Home
-        </a>
-        <a
-          href=""
+        </NavLink>
+        <NavLink
+          to="/Shop"
           class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
         >
-          Services
-        </a>
-        <a
-          href=""
+          Shop
+        </NavLink>
+        <NavLink
+          to="/cart"
           class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
         >
-          About
-        </a>
-        <a
-          href="/contact"
+          Cart
+        </NavLink>
+        <NavLink
+          to="/contact"
           class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
         >
           Contact Us
-        </a>
+        </NavLink>
       </div>
     </header>
   );

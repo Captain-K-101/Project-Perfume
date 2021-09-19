@@ -89,7 +89,7 @@ const Product = () => {
                             <div class="flex-shrink-0 h-10 w-10">
                               <img
                                 class="h-10 w-10 rounded-full"
-                                src={i["images"][0].src?i["images"][0].src:i.images[0]}
+                                src={i["images"][0]?.src?i["images"][0]?.src:i.images[0]}
                                 alt=""
                               />
                             </div>
@@ -113,7 +113,7 @@ const Product = () => {
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                           (
-                          {i.status == 1 ? (
+                          {i.status !=0 ? (
                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                               Avaliable
                             </span>

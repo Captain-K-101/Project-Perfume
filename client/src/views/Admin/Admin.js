@@ -6,7 +6,7 @@ import { NavLink, Link } from "react-router-dom";
 const Admin = () => {
   return (
     <>
-      <div className="container md:m-60 md:grid flex flex-col mt-10  ml-10  grid-flow-col grid-cols-3 grid-rows-3  gap-20 admins">
+      <div className="container md:m-60 md:grid flex flex-col mt-10  ml-10  grid-flow-col grid-cols-3 grid-rows-2  gap-20 admins">
         <Link
           to="/admin/products"
           class="bg-white rounded shadow border p-6 w-64 hover:scale-125 transform-gpu "

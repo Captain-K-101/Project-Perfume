@@ -78,7 +78,7 @@ exports.UploadProduct = catchAsync(async (req, res, next) => {
   const prodcode = req.body["prodcode"];
   const categroy = req.body["categroy"];
   const custtype = req.body["custtype"];
-  const status = req.body["status"] ? req.body["status"] : 0;
+  const status = req.body["status"];
   const rating = req.body["rating"];
   const datas = req.body["data"];
   for (i = 0; i < datas.length; i++) {
@@ -93,7 +93,9 @@ exports.UploadProduct = catchAsync(async (req, res, next) => {
     fs.writeFileSync(DIRECTORY + file_name, buffer);
     imgarr.push("http://localhost:3001" + "/assets/" + file_name);
   }
-  console.log(imgarr);
+  if(imgarr.length==0){
+    imgarr=["https://i.insider.com/61135525ad63f30019501966?width=700","https://i.insider.com/61135525ad63f30019501966?width=700"]
+  }
   const mongo = {
     name,
     price,

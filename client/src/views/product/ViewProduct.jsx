@@ -213,7 +213,7 @@ const ViewProduct = () => {
                     <Link to="/">Home</Link>
                   </li>
                   <li>Products</li>
-                  <li>{product.category}</li>
+                  <li>Perfume</li>
                   <li>{getCustomerType(product.customerType)}</li>
                 </ul>
                 <span className={style.details_id}>
@@ -262,7 +262,7 @@ const ViewProduct = () => {
               <div className={style.details_actions}>
                 <div className={style.size_details}>
                   <span>Available sizes:</span>
-                  <span>US {product.sizes.join(', ')}</span>
+                  <span>ML {product.sizes.join(', ')}</span>
                 </div>
                 <div className={style.action_buy} onClick={addToCart}>
                   <span className={style.price}>

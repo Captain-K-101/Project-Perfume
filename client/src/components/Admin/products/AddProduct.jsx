@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import ImageUpload from './ImageUpload'
+import { Loader } from '../../loader/Loader';
 
 const AddProduct = () => {
     const [products, setproducts] = useState([]);
@@ -16,21 +17,23 @@ const AddProduct = () => {
  const [custtype, setCusttype] = useState(0);
  const [status, setStatus] = useState(0)
  const [rating, setRating] = useState(0)
+ const [loading, setloading] = useState(false);
 
 const Upload_Data =async()=>{
-
+    setloading(true)
     console.log(images);
     const data={"data":images,name,price,description,prodcode,categroy,custtype,status,rating}
     
      await axios.post(`http://localhost:3000/api/products/upload`,data).then(res=>{
         if(res.data.data){
-           alert('item deleted')
-           setda(!da)
+           alert('item inserted')
+           setloading(false)
         }
     })
 }
 
-    return (
+
+    return loading?(<Loader msg="Adding Your Product"/>):(
         <>
         <div className="mx-80">
 <div class="w-full max-w-lg" >
@@ -70,9 +73,9 @@ const Upload_Data =async()=>{
       </label>
       <div class="relative">
         <select onChange={(e)=>{setCategroy(e.target.value)}} class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-          <option value="sneakers">sneakers</option>
-          <option value="sneakers">sneakers</option>
-          <option value="sneakers">sneakers</option>
+          <option value="Perfume">Perfume</option>
+          <option value="Eau">Eau</option>
+          <option value="Cologne">Cologne</option>
         </select>
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -81,7 +84,7 @@ const Upload_Data =async()=>{
     </div>
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-        customerType
+        customer Type
       </label>
       <input onChange={(e)=>{setCusttype(e.target.value)}} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="number" placeholder="1/2/3"/>
     </div>
