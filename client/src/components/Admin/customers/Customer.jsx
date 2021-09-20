@@ -31,7 +31,7 @@ const Customer = () => {
   };
 
   return (<>
-        <NavLink to="/admin">Back</NavLink>
+        <NavLink to="/admin_H0W41294EN">Back</NavLink>
     <div className="mt-20">
       <div className={addprod ? "hidden" : "flex flex-col mx-5"}>
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

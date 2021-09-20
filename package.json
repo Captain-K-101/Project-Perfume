@@ -11,10 +11,6 @@
     "dev:server": "cd client && yarn build && cd .. && yarn start",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shubhambattoo/shopping-cart.git"
-  },
   "keywords": [
     "react",
     "javsacript",
@@ -29,12 +25,12 @@
     "create-react-app",
     "mern-stack"
   ],
-  "author": "shubhambattoo",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shubhambattoo/shopping-cart/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/shubhambattoo/shopping-cart#readme",
+  "homepage": "",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

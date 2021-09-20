@@ -29,7 +29,7 @@ const Product = () => {
   };
   return (
     <>
-      <NavLink to="/admin">Back</NavLink>
+      <NavLink to="/admin_H0W41294EN">Back</NavLink>
       <div className="mt-20">
         <button
           onClick={() => setAddprod(!addprod)}

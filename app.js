@@ -1,10 +1,10 @@
 const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
 const path = require('path');
+const morgan = require('morgan');
 const productRoutes = require('./routes/product');
 const AuthRoutes = require('./routes/authentication');
 const TokenRoutes = require('./routes/tokens');
+const cors = require('cors');
 const app = express();
 
 app.use(express.json({ limit: '50mb' }));

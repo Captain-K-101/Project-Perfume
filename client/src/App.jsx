@@ -9,6 +9,7 @@ import AdminProd from './components/Admin/products/Product.jsx'
 import AdminCustomer from './components/Admin/customers/Customer'
 import AdminToken from './components/Admin/Tokens/Token'
 
+
 const Cart = lazy(() => import('./views/cart/Cart'));
 const Login = lazy(() => import('./views/Authentication/loginreg'));
 const Home = lazy(() => import('./views/homepage/Home'));
@@ -21,6 +22,9 @@ const Logout=()=>{
   localStorage.removeItem("token");
    document.location='/'
 }
+
+
+
 function App() {
 
   const [search, setSearch] = useState('')
@@ -42,10 +46,10 @@ function App() {
                <Route path="/shop" render={() => <Shop setSearch={setSearch} search={search}/>} />
               <Route path="/auth" component={Login} />
               <Route path="/contact" component={Contact} />
-              <ProtectedRoute exact path="/admin" component={Admin} />
-              <ProtectedRoute exact path="/admin/products" component={AdminProd} />
-              <ProtectedRoute exact path="/admin/customers" component={AdminCustomer} />
-              <ProtectedRoute exact path="/admin/token" component={AdminToken} />
+              <ProtectedRoute exact path="/admin_H0W41294EN" component={Admin} />
+              <ProtectedRoute exact path="/admin_H0W41294EN/products" component={AdminProd} />
+              <ProtectedRoute exact path="/admin_H0W41294EN/customers" component={AdminCustomer} />
+              <ProtectedRoute exact path="/admin_H0W41294EN/token" component={AdminToken} />
               <Route path='/logout' component={Logout}/>
               <Route path="*" component={Home} />
             </Switch>
