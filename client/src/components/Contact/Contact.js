@@ -1,6 +1,14 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
 
 const Contact = () => {
+
+    const history = useHistory();
+  const routeChange = () =>{ 
+    alert('Sent')
+    let path = `/`; 
+    history.push(path);
+  }
     return (
         <>
 <br/><br/>
@@ -59,7 +67,7 @@ const Contact = () => {
           </span>
         </label>
       </div>
-      <button class="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded" type="submit">
+      <button onClick={routeChange} class="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded" type="submit">
         Send
       </button>
     </div>

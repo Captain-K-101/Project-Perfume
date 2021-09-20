@@ -32,9 +32,11 @@ const Cart = () => {
       .then((res) => {
         if (res.data.data.products[0]?.price) {
             setredprice(totalCost.toFixed(2)-res.data.data.products[0].price);
+        }else{
+          alert('Invalid Token')
         }
       });
-    console.log(totalCost);
+    
   }
 
   return (
@@ -67,13 +69,13 @@ const Cart = () => {
                 <div className="text">Discount</div>
                 <div className="price">0.00</div>
               </div>
-              <div className={`${style.total_item} ${style.coupon}`}>
-                Discount Code<input onChange={(e)=>Upd(e)} className="border-2 border-red-500" type="text"/>
+              <div className={`${style.total_item} ${style.coupon2}`}>
+                Discount Code<input onChange={(e)=>Upd(e)} className="border-2 border-black" type="text"/>
                 <button onClick={Verify} className="price">Verify</button>
               </div>
               <div className={style.total_item}>
                 <div className="text">Total</div>
-                <div className="price">{redprice?(<> <del className="text-red-400">{totalCost.toFixed(2)}</del>{"  "+redprice}</>):totalCost.toFixed(2)}</div>
+                <div className="price">{redprice?(<> <del className="text-black">{totalCost.toFixed(2)}</del>{"  "+redprice}</>):totalCost.toFixed(2)}</div>
               </div>
             </div>
             <div className={style.checkout_footer}>
